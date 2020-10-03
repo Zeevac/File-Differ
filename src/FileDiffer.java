@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FileDiffer {
@@ -12,7 +13,8 @@ public class FileDiffer {
     private List<String> file1List;
     private List<String> file2List;
     private MyFileReader reader;
-
+    private final static List<String> keywords = Arrays.asList("public","private","void","return","for","if","else","new","import",
+            "throws","package","final","this","try","catch","true","false","class");
     public FileDiffer(String file1, String file2) throws IOException {
         reader = new MyFileReader(file1, file2);
         file1List = reader.readIntoMap(reader.getFile1());
@@ -30,25 +32,6 @@ public class FileDiffer {
     }
 
     public String changeColor(String line){
-        List<String> keywords = new ArrayList<>();
-        keywords.add("public");
-        keywords.add("private");
-        keywords.add("void");
-        keywords.add("return");
-        keywords.add("for");
-        keywords.add("if");
-        keywords.add("else");
-        keywords.add("new");
-        keywords.add("import");
-        keywords.add("throws");
-        keywords.add("package");
-        keywords.add("final");
-        keywords.add("this");
-        keywords.add("try");
-        keywords.add("catch");
-        keywords.add("true");
-        keywords.add("false");
-        keywords.add("class");
         for(String keyword : keywords){
             if (line.contains(keyword)){
                 line = line.replace(keyword,String.format("<span>%s</span>",keyword));
