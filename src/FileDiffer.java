@@ -23,7 +23,7 @@ public class FileDiffer {
 
 
     public void compare() throws IOException {
-        String html = reader.readHTML("src/index.html");
+        String html = reader.readHTML("src/template.html");
         String file1 = addFile1ToString(new StringBuilder());
         html = html.replace("$file1",file1);
         String file2 = addFile2ToString(new StringBuilder());
@@ -46,7 +46,7 @@ public class FileDiffer {
                 line = changeColor(line);
                 builder.append(String.format("<pre>%s</pre>",line));
             } else {
-                builder.append(String.format("<pre style='color:green;'>%s</pre>",line));
+                builder.append(String.format("<pre style='color:chartreuse;'>%s</pre>",line));
             }
         }
         return builder.toString();
@@ -58,7 +58,7 @@ public class FileDiffer {
                 line = changeColor(line);
                 builder.append(String.format("<pre>%s</pre>",line));
             } else {
-                builder.append(String.format("<pre style='color:green;'>%s</pre>",line));
+                builder.append(String.format("<pre style='color:chartreuse;'>%s</pre>",line));
             }
         }
         return builder.toString();
