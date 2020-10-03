@@ -1,7 +1,11 @@
+import org.apache.commons.io.FileUtils;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +27,18 @@ public class MyFileReader {
             list.add(line);
         }
         return list;
+    }
+
+    public String readHTML(String path) throws IOException {
+        File file = new File("src/index.html");
+        String html = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+        return html;
+    }
+
+    public void writeHTML(String path,String html) throws IOException {
+        File newHtmlFile = new File(path);
+        FileUtils.writeStringToFile(newHtmlFile, html, StandardCharsets.UTF_8);
+        Desktop.getDesktop().browse(newHtmlFile.toURI());
     }
 
     public File getFile1() {

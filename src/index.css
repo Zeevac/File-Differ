@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    float: left;
+    height: 100%;
+    width: 50%;
+    background-color: black;
+    color: white;
+    overflow: scroll;
+}
+span{
+    color: orangered;
+}
