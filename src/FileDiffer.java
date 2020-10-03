@@ -41,6 +41,14 @@ public class FileDiffer {
         keywords.add("new");
         keywords.add("import");
         keywords.add("throws");
+        keywords.add("package");
+        keywords.add("final");
+        keywords.add("this");
+        keywords.add("try");
+        keywords.add("catch");
+        keywords.add("true");
+        keywords.add("false");
+        keywords.add("class");
         for(String keyword : keywords){
             if (line.contains(keyword)){
                 line = line.replace(keyword,String.format("<span>%s</span>",keyword));

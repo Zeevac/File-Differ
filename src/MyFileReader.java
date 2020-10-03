@@ -30,7 +30,7 @@ public class MyFileReader {
     }
 
     public String readHTML(String path) throws IOException {
-        File file = new File("src/index.html");
+        File file = new File(path);
         String html = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
         return html;
     }
